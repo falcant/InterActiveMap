@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_621bd957b89848d48957ac638899c0f4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_621bd957b89848d48957ac638899c0f4" ></div>
+        
+</body>
+<script>    
+    
+            var map_621bd957b89848d48957ac638899c0f4 = L.map(
+                "map_621bd957b89848d48957ac638899c0f4",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: true,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_55b94ff269044516bfc3fd6297c076a3 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_621bd957b89848d48957ac638899c0f4);
+        
+    
+            var marker_563a739a07c64be38fb89256c4cf74c1 = L.marker(
+                [33.8972, -118.30873000000001],
+                {"fillColor": "#000000", "radius": 2, "weight": 0}
+            ).addTo(map_621bd957b89848d48957ac638899c0f4);
+        
+    
+        var popup_090787eb58a7455095b13ddfcf55df83 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4be8bd7464d34bc8b6461c7375595fea = $(`<div id="html_4be8bd7464d34bc8b6461c7375595fea" style="width: 100.0%; height: 100.0%;">Name: <a href="https://www.peruchicha.com/"target="_blank">Peru Chicha</a><br>Hours: M: Closed T-F:10:30am - 8:00pm S-Sun:10:00am-8:00pm<br>Patio/Outdoor Seating: Yes<br>Address: <a href="https://www.google.com/maps/dir/?api=1&destination=33.8972,-118.30873"target="_blank">14800 S Western Ave Unit 103, Gardena, CA 902</a><br>Phone: (310) 819-8665</div>`)[0];
+            popup_090787eb58a7455095b13ddfcf55df83.setContent(html_4be8bd7464d34bc8b6461c7375595fea);
+        
+
+        marker_563a739a07c64be38fb89256c4cf74c1.bindPopup(popup_090787eb58a7455095b13ddfcf55df83)
+        ;
+
+        
+    
+    
+            var marker_d94a733156f440caa687ebee35669fba = L.marker(
+                [33.80053, -118.21505],
+                {"fillColor": "#000000", "radius": 2, "weight": 0}
+            ).addTo(map_621bd957b89848d48957ac638899c0f4);
+        
+    
+        var popup_5ce840b2b33b4abb81e2ccc8a21c249a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_35cc4f89d7624d10b3df1818acd0b65b = $(`<div id="html_35cc4f89d7624d10b3df1818acd0b65b" style="width: 100.0%; height: 100.0%;">Name: <a href="https://www.facebook.com/casachaskis/"target="_blank">Casa Chaskis</a><br>Hours: M-S:11:00am -8:pm Sun:12:00pm -8:00pm<br>Patio/Outdoor Seating: Yes<br>Address: <a href="https://www.google.com/maps/dir/?api=1&destination=33.80053,-118.21505"target="_blank">2380 Santa Fe Ave, Long Beach, CA 90810</a><br>Phone: (562) 612-3305</div>`)[0];
+            popup_5ce840b2b33b4abb81e2ccc8a21c249a.setContent(html_35cc4f89d7624d10b3df1818acd0b65b);
+        
+
+        marker_d94a733156f440caa687ebee35669fba.bindPopup(popup_5ce840b2b33b4abb81e2ccc8a21c249a)
+        ;
+
+        
+    
+    
+            var marker_384fae09430e4719a4f4270d2b8d85ef = L.marker(
+                [33.80478, -118.32561000000001],
+                {"fillColor": "#000000", "radius": 2, "weight": 0}
+            ).addTo(map_621bd957b89848d48957ac638899c0f4);
+        
+    
+        var popup_4a9ae99418ad4d00a351a7ceac0ba841 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_353050ee60924e17a792502ebc166841 = $(`<div id="html_353050ee60924e17a792502ebc166841" style="width: 100.0%; height: 100.0%;">Name: <a href="https://kotosh-restaurant.com/"target="_blank">Kotosh</a><br>Hours: S-Th:11:00am - 8:00pm F/Sat:11:00am -9:00pm<br>Patio/Outdoor Seating: No<br>Address: <a href="https://www.google.com/maps/dir/?api=1&destination=33.90478,-118.32561"target="_blank">2408 Lomita Blvd. Suite C Lomita, CA 90717</a><br>Phone: (310) 257-1363</div>`)[0];
+            popup_4a9ae99418ad4d00a351a7ceac0ba841.setContent(html_353050ee60924e17a792502ebc166841);
+        
+
+        marker_384fae09430e4719a4f4270d2b8d85ef.bindPopup(popup_4a9ae99418ad4d00a351a7ceac0ba841)
+        ;
+
+        
+    
+    
+            var marker_36eaa59291d348b39b14aa18002163a9 = L.marker(
+                [33.83229, -118.01038999999999],
+                {"fillColor": "#000000", "radius": 2, "weight": 0}
+            ).addTo(map_621bd957b89848d48957ac638899c0f4);
+        
+    
+        var popup_a407e40574474654a090d6b2584226e0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_92a742dcb9134f1eafa4a771e9bda6cb = $(`<div id="html_92a742dcb9134f1eafa4a771e9bda6cb" style="width: 100.0%; height: 100.0%;">Name: <a href="http://ajilimon.com/"target="_blank">Aji Limon</a><br>Hours: M-Th: 11:00am - 8pm F: 11:00am-9pm S: 9:30am-9:00pm Sun: 9:30am - 8:00pm<br>Patio/Outdoor Seating: No<br>Address: <a href="https://www.google.com/maps/dir/?api=1&destination=33.83229,-118.01039"target="_blank">7035 Lincoln Ave, Buena Park, CA 90620</a><br>Phone: (714) 229-1500</div>`)[0];
+            popup_a407e40574474654a090d6b2584226e0.setContent(html_92a742dcb9134f1eafa4a771e9bda6cb);
+        
+
+        marker_36eaa59291d348b39b14aa18002163a9.bindPopup(popup_a407e40574474654a090d6b2584226e0)
+        ;
+
+        
+    
+    
+            var marker_69f3bf486e0943babc6210219384f0cd = L.marker(
+                [33.87265, -118.29777],
+                {"fillColor": "#000000", "radius": 2, "weight": 0}
+            ).addTo(map_621bd957b89848d48957ac638899c0f4);
+        
+    
+        var popup_c4a189f00e0f4b7a95a0b7e426ae8706 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c72b514a367644c48446fd768bb9da5d = $(`<div id="html_c72b514a367644c48446fd768bb9da5d" style="width: 100.0%; height: 100.0%;">Name: <a href="http://elrocoto.com/"target="_blank">El Rocoto</a><br>Hours: Sun-Th:11:00am-8:00pm F-S: 11:00am-9:00pm<br>Patio/Outdoor Seating: No<br>Address: <a href="https://www.google.com/maps/dir/?api=1&destination=33.87265,-118.29777"target="_blank">1356 W Artesia Blvd, Gardena, CA 90247</a><br>Phone: (310) 768-8768</div>`)[0];
+            popup_c4a189f00e0f4b7a95a0b7e426ae8706.setContent(html_c72b514a367644c48446fd768bb9da5d);
+        
+
+        marker_69f3bf486e0943babc6210219384f0cd.bindPopup(popup_c4a189f00e0f4b7a95a0b7e426ae8706)
+        ;
+
+        
+    
+    
+            map_621bd957b89848d48957ac638899c0f4.fitBounds(
+                [[33.80053, -118.32561000000001], [33.8972, -118.01038999999999]],
+                {}
+            );
+        
+</script>
