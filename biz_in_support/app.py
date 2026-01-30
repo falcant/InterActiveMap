@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import folium
 from streamlit_folium import st_folium
-from streamlit_folium import folium_static
+#from streamlit_folium import folium_static
 
 # 1. PAGE CONFIG
 st.set_page_config(layout="wide", page_title="Biz in Support")
@@ -12,7 +12,7 @@ st.set_page_config(layout="wide", page_title="Biz in Support")
 def load_data():
     # Use a relative path for deployment (e.g., 'data/data.csv')
     path = "D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv"
-    df = pd.read_csv(path, encoding="ISO-8859-1", engine='python', sep=',')
+    df = pd.read_csv(path, encoding="ISO-8859-1", engine='python', sep=',',header=1)
     #df = pd.read_csv('D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv', engine='python', sep=',')
     df.columns = df.columns.str.strip()
     return df.dropna(subset=['Lat', 'Lon'])
@@ -53,18 +53,23 @@ if not filtered_df.empty:
         
         popup_html = f"""
             <div style="font-family: Arial, sans-serif; min-width: 180px;">
-                <a href="{row['Website']}" target="_blank" style="font-size: 14px; font-weight: bold; color: #1A73E8; text-decoration: none;">
+                <a href="{row['Website']}" target="_blank" 
+                   style="font-size: 14px; font-weight: bold; color: #1A73E8; text-decoration: none;">
                     {row['Business']}
-                </a><br><br>
-                <a href="{row['Driving']}" target="_blank" style="font-size: 12px; color: #555; text-decoration: underline;">
+                </a>
+                <br><br>
+                <a href="{row['Driving']}" target="_blank" 
+                   style="font-size: 12px; color: #555; text-decoration: underline;">
                     {row['Address']}
                 </a>
             </div>
         """
+        
+        # Using CircleMarker instead of the standard Marker
         folium.Marker(
             location=[lat, lon],
             popup=folium.Popup(popup_html, max_width=300),
-            tooltip=row['Business']
+            icon=folium.Icon(color='blue', icon='info-sign')
         ).add_to(m)
 
     # Auto-Zoom
@@ -75,7 +80,12 @@ if not filtered_df.empty:
         m.zoom_start = 14
 
     # 7. DISPLAY MAP
-    #st_folium(m, width="100%", height=700, returned_objects=[])
-    folium_static(m, width=800, height=600)
+    st_folium(
+    m, 
+    width=800,           # Adjust width as needed
+    height=600,          # Adjust height as needed
+    returned_objects=[] # THIS IS THE KEY: it makes it act like the old folium_static
+    )
+    #folium_static(m, width=800, height=600)
 else:
     st.warning("No results match these filters.")
