@@ -11,8 +11,11 @@ st.set_page_config(layout="wide", page_title="Biz in Support")
 @st.cache_data # This keeps the app fast by not reloading the CSV every click
 def load_data():
     # Use a relative path for deployment (e.g., 'data/data.csv')
-    path = "D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv"
-    df = pd.read_csv(path, encoding="ISO-8859-1", engine='python', sep=',',header=1)
+    # this right here is only for local drive------------------------------------------
+    #path = "D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv"
+    #df = pd.read_csv(path, encoding="ISO-8859-1", engine='python', sep=',',header=1)
+    #----------------------------------------------------------------------------------
+    df = pd.read_csv('data.csv', encoding="ISO-8859-1", engine='python', sep=',',header=1)
     #df = pd.read_csv('D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv', engine='python', sep=',')
     df.columns = df.columns.str.strip()
     return df.dropna(subset=['Lat', 'Lon'])
