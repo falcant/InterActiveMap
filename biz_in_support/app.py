@@ -3,34 +3,36 @@ import pandas as pd
 import folium
 from streamlit_folium import st_folium
 import os
-#from streamlit_folium import folium_static
 
 # 1. PAGE CONFIG
-st.set_page_config(layout="wide", page_title="Biz in Support")
+st.set_page_config(layout="wide", page_title="BUSINESSES AGAINST ICE IN UTAH")
 
 # 2. DATA LOADING
-
 @st.cache_data
 def load_data():
-    # This finds the directory where app.py is located
     base_path = os.path.dirname(__file__)
-    # This joins the directory path with your filename
     file_path = os.path.join(base_path, "data.csv")
     
     if not os.path.exists(file_path):
-        st.error(f"File not found at: {file_path}")
+        st.error(f"File not found. Please ensure 'data.csv' is in the same folder as this script.")
         st.stop()
         
-    df = pd.read_csv(file_path, encoding="ISO-8859-1", engine='python',sep=',',header=1)
+    # header=1 skips the first row of the CSV
+    # header=0 uses the very first row as the column names
+    df = pd.read_csv(file_path, encoding="ISO-8859-1", engine='python', sep=',', header=1)
+    
+    # Clean hidden spaces from column names
     df.columns = df.columns.str.strip()
+    
     return df.dropna(subset=['Lat', 'Lon'])
 
 data = load_data()
 
 # 3. HEADER
-st.markdown("<h2 style='text-align: center;'>Biz in Support</h2>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: grey;'>Businesses Against ICE in UT</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: black;'>Please Support these businesses <3 </h2>", unsafe_allow_html=True)
 
-# 4. FILTERS (Sidebar or Top Columns)
+# 4. FILTERS
 col1, col2 = st.columns(2)
 
 with col1:
@@ -38,17 +40,14 @@ with col1:
     selected_county = st.selectbox("Select County:", options=counties)
 
 with col2:
-    # FUTURE CATEGORY FILTER (Commented out)
-    # categories = ["All"] + sorted(data['Category'].unique().tolist())
-    # selected_category = st.selectbox("Select Category:", options=categories)
-    st.write("") # Placeholder
+    categories = ["All"] + sorted(data['Category'].unique().tolist())
+    selected_category = st.selectbox("Select Category:", options=categories)
 
 # 5. FILTER LOGIC
 filtered_df = data[data['County'] == selected_county]
 
-# FUTURE CATEGORY LOGIC
-# if selected_category != "All":
-#     filtered_df = filtered_df[filtered_df['Category'] == selected_category]
+if selected_category != "All":
+    filtered_df = filtered_df[filtered_df['Category'] == selected_category]
 
 # 6. MAP GENERATION
 if not filtered_df.empty:
@@ -73,27 +72,31 @@ if not filtered_df.empty:
             </div>
         """
         
-        # Using CircleMarker instead of the standard Marker
+        # Back to standard Blue Markers
         folium.Marker(
             location=[lat, lon],
             popup=folium.Popup(popup_html, max_width=300),
+            tooltip=row['Business'],
             icon=folium.Icon(color='blue', icon='info-sign')
         ).add_to(m)
 
-    # Auto-Zoom
+    # 7. DYNAMIC ZOOM (Recalculated for County + Category)
     if len(points) > 1:
-        m.fit_bounds(points, padding=(40, 40))
-    else:
+        m.fit_bounds(points, padding=(50, 50))
+    elif len(points) == 1:
         m.location = points[0]
-        m.zoom_start = 14
+        m.zoom_start = 15
 
-    # 7. DISPLAY MAP
+    # 8. DISPLAY MAP
     st_folium(
-    m, 
-    width=800,           # Adjust width as needed
-    height=600,          # Adjust height as needed
-    returned_objects=[] # THIS IS THE KEY: it makes it act like the old folium_static
+        m, 
+        width="100%", 
+        height=600, 
+        returned_objects=[],
+        key=f"map_{selected_county}_{selected_category}" # Forces zoom update
     )
-    #folium_static(m, width=800, height=600)
 else:
-    st.warning("No results match these filters.")
+    st.warning(f"No results found in {selected_county} for: {selected_category}")
+
+# 9. FOOTER
+st.write(f"Showing **{len(filtered_df)}** locations.")
