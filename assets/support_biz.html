@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_61bd637a7ad1fcba9dadd1d03c84e387 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_61bd637a7ad1fcba9dadd1d03c84e387" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_61bd637a7ad1fcba9dadd1d03c84e387 = L.map(
+                "map_61bd637a7ad1fcba9dadd1d03c84e387",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_666a2ef46e89536714911d6230f1e527 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_666a2ef46e89536714911d6230f1e527.addTo(map_61bd637a7ad1fcba9dadd1d03c84e387);
+        
+    
+            var marker_173ba73a149312ff26af0331d8f0241f = L.marker(
+                [40.7603, -111.90143],
+                {
+  "radius": 2,
+  "weight": 0,
+  "fillColor": "#000000",
+}
+            ).addTo(map_61bd637a7ad1fcba9dadd1d03c84e387);
+        
+    
+        var popup_cabd06427a80825d4411f1fe3e7eeb98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34f3a2cd3560763dcb628e335448431e = $(`<div id="html_34f3a2cd3560763dcb628e335448431e" style="width: 100.0%; height: 100.0%;"> <a href="https://bookshop.org/shop/1974bookstoreslc"target="_blank">1974 Bookstore</a></div>`)[0];
+                popup_cabd06427a80825d4411f1fe3e7eeb98.setContent(html_34f3a2cd3560763dcb628e335448431e);
+            
+        
+
+        marker_173ba73a149312ff26af0331d8f0241f.bindPopup(popup_cabd06427a80825d4411f1fe3e7eeb98)
+        ;
+
+        
+    
+    
+            var marker_4582dd5ae728c2d0c603ad49880b07a7 = L.marker(
+                [40.763045, -111.883829],
+                {
+  "radius": 2,
+  "weight": 0,
+  "fillColor": "#000000",
+}
+            ).addTo(map_61bd637a7ad1fcba9dadd1d03c84e387);
+        
+    
+        var popup_4a962159d06b556470d36c41945048f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af774543d754c8276adb315fd56289e0 = $(`<div id="html_af774543d754c8276adb315fd56289e0" style="width: 100.0%; height: 100.0%;"> <a href="https://www.abysspiercing.com/"target="_blank">Abyss Body Piercing</a></div>`)[0];
+                popup_4a962159d06b556470d36c41945048f9.setContent(html_af774543d754c8276adb315fd56289e0);
+            
+        
+
+        marker_4582dd5ae728c2d0c603ad49880b07a7.bindPopup(popup_4a962159d06b556470d36c41945048f9)
+        ;
+
+        
+    
+    
+            var marker_1877640e85b191db7d1dc9bb7f6f6988 = L.marker(
+                [40.735055, -111.88866],
+                {
+  "radius": 2,
+  "weight": 0,
+  "fillColor": "#000000",
+}
+            ).addTo(map_61bd637a7ad1fcba9dadd1d03c84e387);
+        
+    
+        var popup_8b94a6a00484e69ba40c330f33d61ec1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_18b4c4f8e05ff5734a0795c3bbccc809 = $(`<div id="html_18b4c4f8e05ff5734a0795c3bbccc809" style="width: 100.0%; height: 100.0%;"> <a href="https://aceshighsaloon.com/"target="_blank">Aces High Saloon</a></div>`)[0];
+                popup_8b94a6a00484e69ba40c330f33d61ec1.setContent(html_18b4c4f8e05ff5734a0795c3bbccc809);
+            
+        
+
+        marker_1877640e85b191db7d1dc9bb7f6f6988.bindPopup(popup_8b94a6a00484e69ba40c330f33d61ec1)
+        ;
+
+        
+    
+    
+            map_61bd637a7ad1fcba9dadd1d03c84e387.fitBounds(
+                [[40.735055, -111.90143], [40.763045, -111.883829]],
+                {}
+            );
+        
+</script>
+</html>
