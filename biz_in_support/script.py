@@ -3,6 +3,7 @@ from dash import dcc, html, Input, Output
 import folium
 import pandas as pd
 import re
+# this will help build an interactive map
 
 # 1. DATA LOADING
 data = pd.read_csv("D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv", 
