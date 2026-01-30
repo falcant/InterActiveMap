@@ -2,21 +2,26 @@ import streamlit as st
 import pandas as pd
 import folium
 from streamlit_folium import st_folium
+import os
 #from streamlit_folium import folium_static
 
 # 1. PAGE CONFIG
 st.set_page_config(layout="wide", page_title="Biz in Support")
 
 # 2. DATA LOADING
-@st.cache_data # This keeps the app fast by not reloading the CSV every click
+
+@st.cache_data
 def load_data():
-    # Use a relative path for deployment (e.g., 'data/data.csv')
-    # this right here is only for local drive------------------------------------------
-    #path = "D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv"
-    #df = pd.read_csv(path, encoding="ISO-8859-1", engine='python', sep=',',header=1)
-    #----------------------------------------------------------------------------------
-    df = pd.read_csv('data.csv', encoding="ISO-8859-1", engine='python', sep=',',header=1)
-    #df = pd.read_csv('D:\\GIt\\InterActiveMap\\biz_in_support\\data.csv', engine='python', sep=',')
+    # This finds the directory where app.py is located
+    base_path = os.path.dirname(__file__)
+    # This joins the directory path with your filename
+    file_path = os.path.join(base_path, "data.csv")
+    
+    if not os.path.exists(file_path):
+        st.error(f"File not found at: {file_path}")
+        st.stop()
+        
+    df = pd.read_csv(file_path, encoding="ISO-8859-1", engine='python',sep=',',header=1)
     df.columns = df.columns.str.strip()
     return df.dropna(subset=['Lat', 'Lon'])
 
