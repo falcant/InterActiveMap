@@ -11,15 +11,15 @@ st.set_page_config(layout="wide", page_title="BUSINESSES AGAINST ICE IN UTAH")
 @st.cache_data
 def load_data():
     base_path = os.path.dirname(__file__)
-    file_path = os.path.join(base_path, "data.csv")
+    file_path = os.path.join(base_path, "data_enriched.csv")
     
     if not os.path.exists(file_path):
-        st.error(f"File not found. Please ensure 'data.csv' is in the same folder as this script.")
+        st.error(f"File not found. Please ensure 'data_enriched.csv' is in the same folder as this script.")
         st.stop()
         
     # header=1 skips the first row of the CSV
     # header=0 uses the very first row as the column names
-    df = pd.read_csv(file_path, encoding="ISO-8859-1", engine='python', sep=',', header=1)
+    df = pd.read_csv(file_path, encoding="ISO-8859-1", engine='python', sep=',', header=0)
     
     # Clean hidden spaces from column names
     df.columns = df.columns.str.strip()
